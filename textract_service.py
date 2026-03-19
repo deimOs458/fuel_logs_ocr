@@ -12,6 +12,7 @@ textract = boto3.client(
     aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
     aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"],
     region_name=os.environ["AWS_DEFAULT_REGION"]
+)
 
 def extract_table_from_bytes(img_bytes, file_name):
 
