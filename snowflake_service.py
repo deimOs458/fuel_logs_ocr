@@ -9,16 +9,18 @@ for line in secret_blob.splitlines():
         os.environ[key] = value
 
 # ---------- SNOWFLAKE CONNECTION ----------
+import snowflake.connector
+import streamlit as st
+
 def get_connection():
     return snowflake.connector.connect(
-        user=os.environ["SNOWFLAKE_USER"],
-        password=os.environ["SNOWFLAKE_PASSWORD"],
-        account=os.environ["SNOWFLAKE_ACCOUNT"],
-        warehouse=os.environ["SNOWFLAKE_WAREHOUSE"],
-        database=os.environ["SNOWFLAKE_DATABASE"],
-        schema=os.environ["SNOWFLAKE_SCHEMA"]
+        user=st.secrets["SNOWFLAKE_USER"],
+        password=st.secrets["SNOWFLAKE_PASSWORD"],
+        account=st.secrets["SNOWFLAKE_ACCOUNT"],
+        warehouse=st.secrets["SNOWFLAKE_WAREHOUSE"],
+        database=st.secrets["SNOWFLAKE_DATABASE"],
+        schema=st.secrets["SNOWFLAKE_SCHEMA"]
     )
-
 def insert_json(data):
     conn = get_connection()
     cursor = conn.cursor()
