@@ -5,10 +5,6 @@ from snowflake_service import insert_json
 from io import StringIO
 import os
 
-secret_blob = os.environ["env_secret"]
-for line in secret_blob.splitlines():
-    key, value = line.split("=", 1)
-    os.environ[key] = value
 load_dotenv()
 
 # ---------- PAGE CONFIG ----------
