@@ -5,8 +5,6 @@ from snowflake_service import insert_json
 from io import StringIO
 import os
 
-load_dotenv()
-
 # ---------- PAGE CONFIG ----------
 st.set_page_config(
     page_title="Fortescue Fuel Log OCR",
