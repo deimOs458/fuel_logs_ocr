@@ -3,10 +3,6 @@ import os
 from dotenv import load_dotenv
 from utils import get_text, safe_int
 import streamlit as st
-secret_blob = os.environ["env_secret"]
-for line in secret_blob.splitlines():
-    key, value = line.split("=", 1)
-    os.environ[key] = value
 
 textract = boto3.client(
     "textract",
