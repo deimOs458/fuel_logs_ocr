@@ -2,11 +2,6 @@ import snowflake.connector
 import os
 import json
 from dotenv import load_dotenv
-secret_blob = os.environ.get("env_secret", "")
-for line in secret_blob.splitlines():
-    if "=" in line:
-        key, value = line.split("=", 1)
-        os.environ[key] = value
 
 # ---------- SNOWFLAKE CONNECTION ----------
 import snowflake.connector
